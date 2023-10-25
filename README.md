@@ -1,73 +1,61 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+# KameTickets
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+KameTicket is a platform for managing and selling tickets for events. The platform allows users to explore a variety of events available in their cities, purchase tickets, and stay updated on the latest information about concerts, performances, and more.
 
-## Installation
+## Main Commands
 
-```bash
-$ npm install
-```
+- `npm start` - Starts the application in production mode.
+- `npm run start:dev` - Starts the application in development mode with file watch.
+- `npm run lint` - Runs the linter to fix code issues.
+- `npm run test` - Runs the tests.
+- `npm run test:watch` - Runs the tests with file watch.
 
-## Running the app
+## Configuration
 
-```bash
-# development
-$ npm run start
+### Installing Dependencies
 
-# watch mode
-$ npm run start:dev
+Run the command `npm install` to install all the necessary project dependencies.
 
-# production mode
-$ npm run start:prod
-```
+### Key Features
 
-## Test
+- **User Registration**: Allows users to create accounts with their relevant details.
+- **Event Creation**: Enables organizers to create and publish details of events, including name, description, date, location, and available tickets.
+- **Event Listing**: Provides a list of all available events for users to explore.
+- **Event Details**: Displays in-depth information about a specific event, including its description, date, location, and available tickets.
+- **Ticket Purchase**: Allows users to select and purchase tickets for their desired events.
+- **User Management**: Enables administrators to view, update, and delete user accounts, providing flexibility in user management.
+- **Event Updates**: Allows organizers to modify event details, ensuring accuracy and relevance.
+- **User Profiles**: Provides a space for users to view and edit their profile information.
+- **User Authentication**: Ensures secure access to the platform through authentication mechanisms.
+- **Error Handling**: Implements robust error handling to provide informative feedback to users in case of issues.
 
-```bash
-# unit tests
-$ npm run test
+## Technologies
 
-# e2e tests
-$ npm run test:e2e
+- **NestJS** - A progressive Node.js framework for building efficient, reliable, and scalable server-side applications
+- **TypeScript**: A superset of JavaScript that adds optional static types to the language. It's used for writing the application code.
+- **TypeORM**: An Object-Relational Mapping (ORM) library for TypeScript and JavaScript that works with databases like PostgreSQL. It simplifies database interactions.
+- **Jest**: A testing framework for JavaScript and TypeScript. It's used for writing and executing tests.
+- **ESLint**: A static code analysis tool for identifying problematic patterns found in JavaScript and TypeScript code.
+- **Prettier**: An opinionated code formatter that ensures code consistency.
 
-# test coverage
-$ npm run test:cov
-```
+## Available Routes
+### Events
+- **List Events** ``(GET)`` - /events: Returns a list of all available events.
+- **Event Details** ``(GET)`` - /events/:id: Returns the details of a specific event based on its ID.
+- **Create Event** ``(POST)`` - /events: Creates a new event based on the data provided in the request body.
+- **Update Event** ``(PATCH)`` - /events/:id: Updates the details of an existing event based on its ID.
+- **Delete Event** ``(DELETE)`` - /events/:id: Removes an event based on its ID.
 
-## Support
+### Users
+- **List Users** ``(GET)`` - /users: Returns a list of all registered users.
+- **User Details** ``(GET)`` - /users/:id: Returns the details of a specific user based on their ID.
+- **Create User** ``(POST)`` - /users: Creates a new user based on the data provided in the request body.
+- **Update User** ``(PATCH)`` - /users/:id: Updates the details of an existing user based on their ID.
+- **Delete User** ``(DELETE)`` - /users/:id: Removes a user based on their ID.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
+## Contributing
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Feel free to contribute with improvements, bug fixes, or new features. Create a new branch, make your changes, and open a pull request.
