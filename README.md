@@ -4,6 +4,8 @@
 
 KameTicket is a platform for managing and selling tickets for events. The platform allows users to explore a variety of events available in their cities, purchase tickets, and stay updated on the latest information about concerts, performances, and more.
 
+🚧 **In Development** 🚧: The project is currently in active development. We are working to add new features and enhance the user experience. Stay tuned for updates!
+
 ## Main Commands
 
 - `npm start` - Starts the application in production mode.
