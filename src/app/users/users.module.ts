@@ -17,5 +17,6 @@ import { GlobalHttpExceptionFilter } from 'src/interceptors/global-http-exceptio
     },
     ConsoleLogger,
   ],
+  exports: [UsersService],
 })
 export class UsersModule {}

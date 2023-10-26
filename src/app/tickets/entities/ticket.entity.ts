@@ -13,6 +13,9 @@ export class Ticket {
   @ManyToOne(() => User, (user) => user.tickets)
   buyer: User;
 
-  @ManyToOne(() => Event, (event) => event.tickets)
+  @ManyToOne(() => Event, (event) => event.tickets, {
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   event: Event;
 }

@@ -18,5 +18,6 @@ import { GlobalHttpExceptionFilter } from 'src/interceptors/global-http-exceptio
     },
     ConsoleLogger,
   ],
+  exports: [EventsService],
 })
 export class EventsModule {}

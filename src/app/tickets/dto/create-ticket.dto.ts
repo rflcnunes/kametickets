@@ -11,4 +11,8 @@ export class CreateTicketDto {
 
   @IsNotEmpty()
   pricePaid: number;
+
+  @IsNotEmpty()
+  @IsNumber()
+  quantity: number;
 }
