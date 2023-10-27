@@ -5,4 +5,7 @@ import { IsNumber } from 'class-validator';
 export class UpdateTicketDto extends PartialType(CreateTicketDto) {
   @IsNumber()
   pricePaid: number;
+
+  @IsNumber()
+  quantity: number;
 }
