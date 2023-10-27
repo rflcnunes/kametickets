@@ -61,7 +61,14 @@ Run the command `npm install` to install all the necessary project dependencies.
 }
 ```
 
-- **Update Event** `(PATCH)` - /events/:id: Updates the details of an existing event based on its ID.
+- **Update Event** `(PATCH)` - /events/:id: Updates the details of an existing event based on its ID. (Only availableTickets can be updated)
+
+```json
+{
+  "availableTickets": 200
+}
+```
+
 - **Delete Event** `(DELETE)` - /events/:id: Removes an event based on its ID.
 
 ### Users
@@ -85,7 +92,24 @@ Run the command `npm install` to install all the necessary project dependencies.
 - **List Orders** `(GET)` - /orders: Returns a list of all available orders.
 - **Order Details** `(GET)` - /orders/:id: Returns the details of a specific order based on its ID.
 - **Create Order** `(POST)` - /orders: Creates a new order based on the data provided in the request body.
-- **Update Order** `(PATCH)` - /orders/:id: Updates order status based on its ID.
+
+```json
+{
+  "orderItems": [
+    { "eventId": "3", "quantity": 10, "pricePaid": 20.0 },
+    { "eventId": "6", "quantity": 1, "pricePaid": 240.0 },
+    { "eventId": "9", "quantity": 1, "pricePaid": 40.0 }
+  ],
+  "userId": "4"
+}
+```
+
+- **Update Order** `(PATCH)` - /orders/:id: Updates order status based on its ID. (Only status can be updated)
+```json
+{
+  "status": "done"
+}
+```
 - **Delete Order** `(DELETE)` - /orders/:id: Removes an order based on its ID.
 
 ## Contributing
