@@ -121,24 +121,24 @@ Run the command `npm install` to install all the necessary project dependencies.
 - **Order Details** `(GET)` - /orders/:id: Returns the details of a specific order based on its ID.
 - **Create Order** `(POST)` - /orders: Creates a new order based on the data provided in the request body.
 
-```json
-{
-  "orderItems": [
-    { "eventId": "3", "quantity": 10, "pricePaid": 20.0 },
-    { "eventId": "6", "quantity": 1, "pricePaid": 240.0 },
-    { "eventId": "9", "quantity": 1, "pricePaid": 40.0 }
-  ],
-  "userId": "4"
-}
-```
+  ```json
+  {
+    "orderItems": [
+      { "eventId": "3", "quantity": 10, "pricePaid": 20.0 },
+      { "eventId": "6", "quantity": 1, "pricePaid": 240.0 },
+      { "eventId": "9", "quantity": 1, "pricePaid": 40.0 }
+    ],
+    "userId": "4"
+  }
+  ```
 
 - **Update Order** `(PATCH)` - /orders/:id: Updates order status based on its ID. (Only status can be updated)
 
-```json
-{
-  "status": "done"
-}
-```
+  ```json
+  {
+    "status": "done"
+  }
+  ```
 
 - **Delete Order** `(DELETE)` - /orders/:id: Removes an order based on its ID.
 
