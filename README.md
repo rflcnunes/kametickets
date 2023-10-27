@@ -50,24 +50,24 @@ Run the command `npm install` to install all the necessary project dependencies.
 - **Event Details** `(GET)` - /events/:id: Returns the details of a specific event based on its ID.
 - **Create Event** `(POST)` - /events: Creates a new event based on the data provided in the request body.
 
-```json
-{
-  "eventName": "Concert in the Park",
-  "description": "A live music event in the city park",
-  "dateTime": "2023-11-01T18:00:00.000Z",
-  "location": "City Park",
-  "availableTickets": 100,
-  "organizerId": 2
-}
-```
+  ```json
+  {
+    "eventName": "Concert in the Park",
+    "description": "A live music event in the city park",
+    "dateTime": "2023-11-01T18:00:00.000Z",
+    "location": "City Park",
+    "availableTickets": 100,
+    "organizerId": 2
+  }
+  ```
 
 - **Update Event** `(PATCH)` - /events/:id: Updates the details of an existing event based on its ID. (Only availableTickets can be updated)
 
-```json
-{
-  "availableTickets": 200
-}
-```
+  ```json
+  {
+    "availableTickets": 200
+  }
+  ```
 
 - **Delete Event** `(DELETE)` - /events/:id: Removes an event based on its ID.
 
@@ -76,7 +76,22 @@ Run the command `npm install` to install all the necessary project dependencies.
 - **List Users** `(GET)` - /users: Returns a list of all registered users.
 - **User Details** `(GET)` - /users/:id: Returns the details of a specific user based on their ID.
 - **Create User** `(POST)` - /users: Creates a new user based on the data provided in the request body.
+  ```json
+  {
+    "name": "John Doe",
+    "email": "john@email.com",
+    "password": "12345678",
+    "city": "New York"
+  }
+  ```
 - **Update User** `(PATCH)` - /users/:id: Updates the details of an existing user based on their ID.
+
+  ```json
+  {
+    "city": "Los Gatos"
+  }
+  ```
+
 - **Delete User** `(DELETE)` - /users/:id: Removes a user based on their ID.
 
 ### Tickets
@@ -84,7 +99,20 @@ Run the command `npm install` to install all the necessary project dependencies.
 - **List Tickets** `(GET)` - /tickets: Returns a list of all available tickets.
 - **Ticket Details** `(GET)` - /tickets/:id: Returns the details of a specific ticket based on its ID.
 - **Create Ticket** `(POST)` - /tickets: Creates a new ticket based on the data provided in the request body.
+  ```json
+  {
+    "eventId": 3,
+    "buyerId": 2,
+    "quantity": 41,
+    "pricePaid": 50.0
+  }
+  ```
 - **Update Ticket** `(PATCH)` - /tickets/:id: Updates the details of an existing ticket based on its ID.
+  ```json
+  {
+    "pricePaid": 60.0
+  }
+  ```
 - **Delete Ticket** `(DELETE)` - /tickets/:id: Removes a ticket based on its ID.
 
 ### Orders
@@ -105,11 +133,13 @@ Run the command `npm install` to install all the necessary project dependencies.
 ```
 
 - **Update Order** `(PATCH)` - /orders/:id: Updates order status based on its ID. (Only status can be updated)
+
 ```json
 {
   "status": "done"
 }
 ```
+
 - **Delete Order** `(DELETE)` - /orders/:id: Removes an order based on its ID.
 
 ## Contributing
