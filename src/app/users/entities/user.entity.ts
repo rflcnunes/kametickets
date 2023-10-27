@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Event } from 'src/app/events/entities/event.entity';
-import { Ticket } from 'src/app/tickets/entities/ticket.entity';
+import { Order } from 'src/app/orders/entities/order.entity';
 
 @Entity('users')
 export class User {
@@ -22,6 +22,6 @@ export class User {
   @OneToMany(() => Event, (event) => event.organizer)
   events: Event[];
 
-  @OneToMany(() => Ticket, (ticket) => ticket.buyer)
-  tickets: Ticket[];
+  @OneToMany(() => Order, (order) => order.user)
+  orders: Order[];
 }

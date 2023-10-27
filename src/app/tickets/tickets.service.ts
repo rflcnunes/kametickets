@@ -3,21 +3,19 @@ import { CreateTicketDto } from './dto/create-ticket.dto';
 import { UpdateTicketDto } from './dto/update-ticket.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Ticket } from './entities/ticket.entity';
-import { UsersService } from '../users/users.service';
 import { EventsService } from '../events/events.service';
 import { Repository } from 'typeorm';
+import { ItemOrder } from '../orders/entities/item-order.entity';
 
 @Injectable()
 export class TicketsService {
   constructor(
     @InjectRepository(Ticket)
     private ticketRepository: Repository<Ticket>,
-    private usersService: UsersService,
     private eventsService: EventsService,
   ) {}
 
   private async create(createTicketDto: CreateTicketDto): Promise<Ticket> {
-    const buyer = await this.usersService.findOne(createTicketDto.buyerId);
     const event = await this.eventsService.findOne(createTicketDto.eventId);
 
     if (
@@ -36,7 +34,6 @@ export class TicketsService {
 
     const ticket = this.ticketRepository.create({
       ...createTicketDto,
-      buyer,
       event,
     });
 
@@ -66,11 +63,9 @@ export class TicketsService {
 
   async update(id: number, updateTicketDto: UpdateTicketDto): Promise<Ticket> {
     const ticket = await this.findOne(id);
-    const buyer = await this.usersService.findOne(updateTicketDto.buyerId);
     const event = await this.eventsService.findOne(updateTicketDto.eventId);
     const ticketUpdated = this.ticketRepository.merge(ticket, {
       ...updateTicketDto,
-      buyer,
       event,
     });
 
@@ -81,5 +76,14 @@ export class TicketsService {
     const ticket = await this.findOne(id);
     await this.ticketRepository.delete(ticket.id);
     return true;
+  }
+
+  async createItemOrder(ticket: Ticket, quantity: number): Promise<ItemOrder> {
+    const itemOrder = new ItemOrder();
+    itemOrder.quantity = quantity;
+    itemOrder.order = null; // O pedido será associado após a criação do pedido
+    itemOrder.ticket = ticket;
+
+    return itemOrder;
   }
 }

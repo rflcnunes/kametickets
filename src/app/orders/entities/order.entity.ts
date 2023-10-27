@@ -8,16 +8,16 @@ import {
   DeleteDateColumn,
   OneToMany,
 } from 'typeorm';
-import { Event } from 'src/app/events/entities/event.entity';
-import { ItemOrder } from 'src/app/orders/entities/item-order.entity';
+import { User } from '../../users/entities/user.entity';
+import { ItemOrder } from './item-order.entity';
 
-@Entity('tickets')
-export class Ticket {
+@Entity()
+export class Order {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  pricePaid: number;
+  status: string;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: string;
@@ -28,12 +28,11 @@ export class Ticket {
   @DeleteDateColumn({ name: 'deleted_at' })
   deletedAt: string;
 
-  @ManyToOne(() => Event, (event) => event.tickets, {
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
-  })
-  event: Event;
+  @ManyToOne(() => User, (user) => user.orders)
+  user: User;
 
-  @OneToMany(() => ItemOrder, (itemOrder) => itemOrder.ticket)
+  @OneToMany(() => ItemOrder, (itemOrder) => itemOrder.order, {
+    cascade: true,
+  })
   itemOrder: ItemOrder[];
 }
