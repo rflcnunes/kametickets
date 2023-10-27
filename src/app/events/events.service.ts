@@ -68,4 +68,16 @@ export class EventsService {
     await this.eventsRepository.remove(event);
     return true;
   }
+
+  async findByIds(ids: number[]): Promise<Event[]> {
+    const events = [];
+
+    for (const id of ids) {
+      const event = await this.findOne(id);
+
+      events.push(event);
+    }
+
+    return events;
+  }
 }
