@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   HttpStatus,
+  HttpCode,
 } from '@nestjs/common';
 import { EventsService } from './events.service';
 import { CreateEventDto } from './dto/create-event.dto';
@@ -17,6 +18,7 @@ import { ApiResponse } from 'src/common/api-response';
 export class EventsController {
   constructor(private readonly eventsService: EventsService) {}
 
+  @HttpCode(HttpStatus.CREATED)
   @Post()
   async create(@Body() createEventDto: CreateEventDto): Promise<ApiResponse> {
     return new ApiResponse(
@@ -27,6 +29,7 @@ export class EventsController {
     );
   }
 
+  @HttpCode(HttpStatus.OK)
   @Get()
   async findAll(): Promise<ApiResponse> {
     return new ApiResponse(
@@ -37,6 +40,7 @@ export class EventsController {
     );
   }
 
+  @HttpCode(HttpStatus.OK)
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<ApiResponse> {
     return new ApiResponse(
@@ -47,6 +51,7 @@ export class EventsController {
     );
   }
 
+  @HttpCode(HttpStatus.OK)
   @Patch(':id')
   async update(
     @Param('id') id: string,
@@ -60,6 +65,7 @@ export class EventsController {
     );
   }
 
+  @HttpCode(HttpStatus.OK)
   @Delete(':id')
   async remove(@Param('id') id: string): Promise<ApiResponse> {
     await this.eventsService.remove(+id);

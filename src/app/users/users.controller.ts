@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   HttpStatus,
+  HttpCode,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -17,6 +18,7 @@ import { ApiResponse } from 'src/common/api-response';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
+  @HttpCode(HttpStatus.CREATED)
   @Post()
   async create(@Body() createUserDto: CreateUserDto): Promise<ApiResponse> {
     const createdUser = await this.usersService.create(createUserDto);
@@ -29,6 +31,7 @@ export class UsersController {
     );
   }
 
+  @HttpCode(HttpStatus.OK)
   @Get()
   async findAll(): Promise<ApiResponse> {
     const users = await this.usersService.findAll();
@@ -41,6 +44,7 @@ export class UsersController {
     );
   }
 
+  @HttpCode(HttpStatus.OK)
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<ApiResponse> {
     const user = await this.usersService.findOne(+id);
@@ -50,6 +54,7 @@ export class UsersController {
     });
   }
 
+  @HttpCode(HttpStatus.OK)
   @Patch(':id')
   async update(
     @Param('id') id: string,
@@ -65,6 +70,7 @@ export class UsersController {
     );
   }
 
+  @HttpCode(HttpStatus.OK)
   @Delete(':id')
   async remove(@Param('id') id: string): Promise<ApiResponse> {
     await this.usersService.remove(+id);

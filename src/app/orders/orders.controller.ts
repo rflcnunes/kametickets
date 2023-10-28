@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   HttpStatus,
+  HttpCode,
 } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { CreateOrderDto } from './dto/create-order.dto';
@@ -17,6 +18,7 @@ import { ApiResponse } from 'src/common/api-response';
 export class OrdersController {
   constructor(private readonly ordersService: OrdersService) {}
 
+  @HttpCode(HttpStatus.CREATED)
   @Post()
   async create(@Body() createOrderDto: CreateOrderDto): Promise<ApiResponse> {
     return new ApiResponse(
@@ -27,6 +29,7 @@ export class OrdersController {
     );
   }
 
+  @HttpCode(HttpStatus.OK)
   @Get()
   async findAll(): Promise<ApiResponse> {
     return new ApiResponse(
@@ -37,6 +40,7 @@ export class OrdersController {
     );
   }
 
+  @HttpCode(HttpStatus.OK)
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<ApiResponse> {
     return new ApiResponse(
@@ -47,6 +51,7 @@ export class OrdersController {
     );
   }
 
+  @HttpCode(HttpStatus.OK)
   @Patch(':id')
   async update(
     @Param('id') id: string,
@@ -60,6 +65,7 @@ export class OrdersController {
     );
   }
 
+  @HttpCode(HttpStatus.OK)
   @Delete(':id')
   async remove(@Param('id') id: string): Promise<ApiResponse> {
     return new ApiResponse(
