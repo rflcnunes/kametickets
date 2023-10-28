@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PostgresConfigService } from './config/postgres.config.service';
 import { ConfigModule } from '@nestjs/config';
 import { OrdersModule } from './app/orders/orders.module';
+import { AuthModule } from './app/auth/auth.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { OrdersModule } from './app/orders/orders.module';
     EventsModule,
     TicketsModule,
     OrdersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
