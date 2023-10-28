@@ -44,6 +44,25 @@ Run the command `npm install` to install all the necessary project dependencies.
 
 ## Available Routes
 
+### Authentication
+
+- **Register User** `(POST)` - /auth/register: Creates a new user based on the data provided in the request body.
+  ```json
+  {
+    "name": "John Doe",
+    "email": "john@email.com",
+    "password": "12345678",
+    "city": "New York"
+  }
+  ```
+- **Login User** `(POST)` - /auth/login: Logs in a user based on the data provided in the request body.
+  ```json
+  {
+    "email": "john@email.com",
+    "password": "12345678"
+  }
+  ```
+
 ### Events
 
 - **List Events** `(GET)` - /events: Returns a list of all available events.
